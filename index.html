@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cesar Francisco's responsive personal portfolio built with HTML, CSS, and Bootstrap — featuring his skills, projects, and certificates.">
+    <title>Cesar Francisco | Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/logo.png">
+
+    <!-- Bootstrap first -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <!-- Custom CSS after Bootstrap so it can override framework defaults -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        document.documentElement.setAttribute("data-theme", localStorage.getItem("portfolio-theme") || "light");
+    </script>
+</head>
+<body>
+    <!-- Responsive Bootstrap navigation -->
+    <header class="site-header sticky-top">
+        <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark text-light site-navbar" aria-label="Main navigation">
+            <div class="container">
+                <a class="navbar-brand brand d-flex align-items-center gap-2" href="#">
+                    <span class="logo">
+                        <img src="assets/images/logo.png" alt="CF" />
+                    </span>
+                    <span class="brand-text">
+                        <strong>Cesar Francisco</strong>
+                        <small class="d-block">Software Engineer</small>
+                    </span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item theme-switch-item">
+                            <button class="theme-switch" type="button" aria-label="Switch to light mode" aria-pressed="false">
+                                <span class="theme-switch__icon theme-switch__icon--night" aria-hidden="true">&#127769;</span>
+                                <span class="theme-switch__track" aria-hidden="true"><span class="theme-switch__thumb"></span></span>
+                                <span class="theme-switch__icon theme-switch__icon--light" aria-hidden="true">&#9728;</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section id="about" class="hero-section" aria-labelledby="hero-title">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-7 order-2 order-lg-1">
+                        <p class="section-kicker mb-2">Hello, I'm</p>
+                        <h1 id="hero-title" class="display-6 fw-bold mb-3">Cesar Francisco <span class="txt-type" data-wait="1000" data-words='["a Designer", "a Developer", "a Thinker", "a Creator"]'></span></h1>
+                        <blockquote class="blockquote">
+                            <p class="mb-3 fs-5"><q>In some ways, programming is like painting. You start with a blank canvas and certain basic raw materials. You use a combination of science, art, and craft to determine what to do with them.</q></p>
+                            <footer class="blockquote-footer"><cite title="Author">Andrew Hunt</cite></footer>
+                        </blockquote>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="assets/files/CesarFrancisco_CV.pdf" class="btn btn-primary btn-lg" target="_blank">Download CV</a>
+                            <a href="https://github.com/CesarF1204" class="btn btn-outline-primary btn-lg" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        </div>
+                        <div class="icons">
+                            <a class="fb" href="https://www.facebook.com/cesarfrancisco120495/" target="_blank">
+                                <button type="button" class="btn btn-outline-primary">
+                                    <i class="fab fa-facebook-square fa-2x"></i>
+                                </button>
+                            </a>
+                            <a class="linkedin" href="https://www.linkedin.com/in/cesar-francisco-00a857171/" target="_blank">
+                                <button type="button" class="btn btn-outline-info">
+                                    <i class="fab fa-linkedin fa-2x"></i>
+                                </button>
+                            </a>
+                            <a class="google" href="mailto:princexcesar@gmail.com" target="_blank">
+                                <button type="button" class="btn btn-outline-danger">
+                                    <i class="fab fa-google-plus-square fa-2x"></i>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 order-1 order-lg-2 text-center">
+                        <img class="profile-image img-fluid" src="assets/images/profile_picture/Cesar_Francisco_closed_eyes.jpg" data-night-src="assets/images/profile_picture/Cesar_Francisco_closed_eyes.jpg" data-light-src="assets/images/profile_picture/Cesar_Francisco.jpg" alt="Profile photo for Cesar Francisco" width="360" height="360">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section class="section-band bg-white">
+            <div class="container section-space">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-12">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="info-card">
+                                    <div class="info-card__icon">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <h3 class="info-card__title">About Me</h3>
+                                    <p class="info-card__text">I'm a Bachelor of Science in Information Technology graduate with a passion for technology and problem-solving. I enjoy learning new things, exploring new technologies, and creating simple, useful solutions.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="info-card">
+                                    <div class="info-card__icon">
+                                        <i class="fas fa-coffee"></i>
+                                    </div>
+                                    <h3 class="info-card__title">Personal Touch</h3>
+                                    <p class="info-card__text">Before anything else, here's a quick fun fact about me. Whenever I'm stuck on a tough coding problem, I've discovered a secret formula: a sip of coffee, and suddenly, the code starts working like magic.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="info-card">
+                                    <div class="info-card__icon">
+                                        <i class="fas fa-code"></i>
+                                    </div>
+                                    <h3 class="info-card__title">Professional Profile</h3>
+                                    <p class="info-card__text">I'm a Software Engineer with <span id="work-year"></span>+ years of professional experience, primarily working with JavaScript. I've built and maintained production web applications, fixed complex issues, and delivered features used by real users.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Certificates -->
+                <h2 id="certificates-title" class="certificates-title mt-4">Certificates</h2>
+                <div class="carousel-container position-relative">
+                        <div id="myCarousel" class="carousel slide" aria-roledescription="carousel" aria-label="Certificate gallery">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="assets/images/certificates/responsivewebdesign.png" class="d-block w-100" alt="responsivewebdesign-certificate">
+                                    <div class="carousel-caption">
+                                        <h5>Responsive Web Design</h5>
+                                        <p>freeCodeCamp Certificate</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/frontend-webdev.png" class="d-block w-100" alt="frontend_bayanacademy-certificate">
+                                    <div class="carousel-caption">
+                                        <h5>Front-End Web Development</h5>
+                                        <p>Bayan Academy Certificate</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/vuejs-certificate.jpg" class="d-block w-100" alt="frontend_bayanacademy-certificate">
+                                    <div class="carousel-caption">
+                                        <h5>VueJs Web Application Development Training</h5>
+                                        <p>Core360 IT Services</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/computersystemservices.png" class="d-block w-100" alt="computersystemservices-certificate">
+                                    <div class="carousel-caption">
+                                        <h5>Computer System Services</h5>
+                                        <p>eTesda Certificate</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/3rdplace_comprog.png" class="d-block w-100" alt="3rd_place-certificate">
+                                    <div class="carousel-caption">
+                                        <h5>3rd Place</h5>
+                                        <p>Advanced Programming Competition</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/photoshop_certi.png" class="d-block w-100" alt="photoshop-certificate">
+                                    <div class="carousel-caption">
+                                        <h5>Basic&Advanced Photoshop</h5>
+                                        <p>AMA-CC Baguio Certificate</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/selfconfidence_certi.png" class="d-block w-100" alt="selfconfidence-certificate">
+                                    <div class="carousel-caption">
+                                        <h5>Building Self Confidence</h5>
+                                        <p>AMA-CC Baguio Certificate</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/graphic_design.png" class="d-block w-100" alt="dict_graphicdesign-certificate">
+                                    <div class="carousel-caption">
+                                        <h5>Fundamentals of Graphic Design</h5>
+                                        <p>DICT Webinar</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/dict_ict_carrerpath.png" class="d-block w-100" alt="dict_ict_careerpath-certificate">
+                                    <div class="carousel-caption">
+                                        <h5>ICT Career Path: International Certifications - Globally Competitive</h5>
+                                        <p>DICT Webinar</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/malwarethreats.png" class="d-block w-100" alt="malwarethreats-certificate">
+                                    <div class="carousel-caption">
+                                        <h5>Malware Threats</h5>
+                                        <p>Trend Micro Certificate</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/websec-threats.png" class="d-block w-100" alt="websecurity_threats-certificate">
+                                    <div class="carousel-caption">
+                                        <h5>Web Security Threats</h5>
+                                        <p>Trend Micro Certificate</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/wordpressplugins.png" class="d-block w-100" alt="wordpressplugins-certificate">
+                                    <div class="carousel-caption">
+                                        <h5>Intro to Wordpress Plugins</h5>
+                                        <p>Website Advice Certificate</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/ecommerceplatforms.png" class="d-block w-100" alt="ecommerceplatforms-certificate">
+                                    <div class="carousel-caption">
+                                        <h5>eCommerce Platforms</h5>
+                                        <p>Website Advice Certificate</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/17thyouthcongress_day1.png" class="d-block w-100" alt="17thyouthcongress_day1-certificate">
+                                    <div class="carousel-caption">
+                                        <h5>Y4iT Day 1</h5>
+                                        <p>17th Youth Congress Certificate</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/17thyouthcongress_day2.png" class="d-block w-100" alt="17thyouthcongress_day2-certificate">
+                                    <div class="carousel-caption">
+                                        <h5>Y4iT Day 2</h5>
+                                        <p>17th Youth Congress Certificate</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/17thyouthcongress_day3.png" class="d-block w-100" alt="17thyouthcongress_day3-certificate">
+                                    <div class="carousel-caption">
+                                        <h5>Y4iT Day 3</h5>
+                                        <p>17th Youth Congress Certificate</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/pma-internship.png" class="d-block w-100" alt="pma_internship-certificate">
+                                    <div class="carousel-caption">
+                                        <h5>Internship 2020</h5>
+                                        <p>PMA Internship Certificate</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/zuitt-fcc.jpg" class="d-block w-100" alt="pma_internship-certificate">
+                                    <div class="carousel-caption">
+                                        <h5>Go Code: Code your Web Profile using HTML, CSS and Bootstrap</h5>
+                                        <p>Zuitt Coding Bootcamp</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/filta-wordpress.jpg" class="d-block w-100" alt="filta_wordpress-certificate">
+                                    <div class="carousel-caption">
+                                        <h5>Starting a career with Wordpress 2021</h5>
+                                        <p>Filta Workshop</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/dict-js-training.png" class="d-block w-100" alt="dict_javascript_certificate">
+                                    <div class="carousel-caption">
+                                        <h5>Basic Javascript Training</h5>
+                                        <p>DICT Training</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/dict-mern-training.png" class="d-block w-100" alt="dict_mern_certificate">
+                                    <div class="carousel-caption">
+                                        <h5>FullStack Web Development Training (MERN Stack)</h5>
+                                        <p>DICT Training</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/v88-webfun.png" class="d-block w-100" alt="v88_webfun_certificate">
+                                    <div class="carousel-caption">
+                                        <h5>Village88 Web Fundamentals Training</h5>
+                                        <p>Village88 Training</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/v88-htmlcss-exam.png" class="d-block w-100" alt="v88_htmlcss_certificate">
+                                    <div class="carousel-caption">
+                                        <h5>Village88 HTML&CSS Examination</h5>
+                                        <p>Village88 Training</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/v88-js-track.png" class="d-block w-100" alt="v88_javascript_certificate">
+                                    <div class="carousel-caption">
+                                        <h5>Village88 JavaScript Training</h5>
+                                        <p>Village88 Training</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/v88-js-exam.png" class="d-block w-100" alt="v88_javascript_exam_certificate">
+                                    <div class="carousel-caption">
+                                        <h5>Village88 JavaScript Examination</h5>
+                                        <p>Village88 Training</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/v88-php-track.png" class="d-block w-100" alt="v88_php_certificate">
+                                    <div class="carousel-caption">
+                                        <h5>Village88 PHP Training</h5>
+                                        <p>Village88 Training</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/v88-php-exam.png" class="d-block w-100" alt="v88_php_exam_certificate">
+                                    <div class="carousel-caption">
+                                        <h5>Village88 PHP Examination</h5>
+                                        <p>Village88 Training</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/xaltius-fullstack.png" class="d-block w-100" alt="xaltius_certificate">
+                                    <div class="carousel-caption">
+                                        <h5>Introduction to FullStack Development</h5>
+                                        <p>Xaltius Academy</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/certificates/data-visualization.png" class="d-block w-100" alt="data_visualization_certificate">
+                                    <div class="carousel-caption">
+                                        <h5>Data Visualization Workshop</h5>
+                                        <p>Zuitt Coding Bootcamp</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="carousel-control-prev" data-bs-target="#myCarousel" data-bs-slide="prev" aria-label="Previous certificate">
+                                <span aria-hidden="true">&#10094;</span>
+                            </button>
+                            <button type="button" class="carousel-control-next" data-bs-target="#myCarousel" data-bs-slide="next" aria-label="Next certificate">
+                                <span aria-hidden="true">&#10095;</span>
+                            </button>
+                        </div>
+                        <div class="carousel-indicators cert-indicators">
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Show certificate 1: Responsive Web Design">
+                                    <img src="assets/images/certificates/responsivewebdesign.png" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Show certificate 2: Front-End Web Development">
+                                    <img src="assets/images/certificates/frontend-webdev.png" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Show certificate 3: VueJs Web Application Development Training">
+                                    <img src="assets/images/certificates/vuejs-certificate.jpg" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Show certificate 4: Computer System Services">
+                                    <img src="assets/images/certificates/computersystemservices.png" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="4" aria-label="Show certificate 5: 3rd Place">
+                                    <img src="assets/images/certificates/3rdplace_comprog.png" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="5" aria-label="Show certificate 6: Basic&Advanced Photoshop">
+                                    <img src="assets/images/certificates/photoshop_certi.png" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="6" aria-label="Show certificate 7: Building Self Confidence">
+                                    <img src="assets/images/certificates/selfconfidence_certi.png" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="7" aria-label="Show certificate 8: Fundamentals of Graphic Design">
+                                    <img src="assets/images/certificates/graphic_design.png" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="8" aria-label="Show certificate 9: ICT Career Path: International Certifications - Globally Competitive">
+                                    <img src="assets/images/certificates/dict_ict_carrerpath.png" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="9" aria-label="Show certificate 10: Malware Threats">
+                                    <img src="assets/images/certificates/malwarethreats.png" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="10" aria-label="Show certificate 11: Web Security Threats">
+                                    <img src="assets/images/certificates/websec-threats.png" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="11" aria-label="Show certificate 12: Intro to Wordpress Plugins">
+                                    <img src="assets/images/certificates/wordpressplugins.png" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="12" aria-label="Show certificate 13: eCommerce Platforms">
+                                    <img src="assets/images/certificates/ecommerceplatforms.png" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="13" aria-label="Show certificate 14: Y4iT Day 1">
+                                    <img src="assets/images/certificates/17thyouthcongress_day1.png" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="14" aria-label="Show certificate 15: Y4iT Day 2">
+                                    <img src="assets/images/certificates/17thyouthcongress_day2.png" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="15" aria-label="Show certificate 16: Y4iT Day 3">
+                                    <img src="assets/images/certificates/17thyouthcongress_day3.png" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="16" aria-label="Show certificate 17: Internship 2020">
+                                    <img src="assets/images/certificates/pma-internship.png" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="17" aria-label="Show certificate 18: Go Code: Code your Web Profile using HTML, CSS and Bootstrap">
+                                    <img src="assets/images/certificates/zuitt-fcc.jpg" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="18" aria-label="Show certificate 19: Starting a career with Wordpress 2021">
+                                    <img src="assets/images/certificates/filta-wordpress.jpg" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="19" aria-label="Show certificate 20: Basic Javascript Training">
+                                    <img src="assets/images/certificates/dict-js-training.png" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="20" aria-label="Show certificate 21: FullStack Web Development Training (MERN Stack)">
+                                    <img src="assets/images/certificates/dict-mern-training.png" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="21" aria-label="Show certificate 22: Village88 Web Fundamentals Training">
+                                    <img src="assets/images/certificates/v88-webfun.png" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="22" aria-label="Show certificate 23: Village88 HTML&CSS Examination">
+                                    <img src="assets/images/certificates/v88-htmlcss-exam.png" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="23" aria-label="Show certificate 24: Village88 JavaScript Training">
+                                    <img src="assets/images/certificates/v88-js-track.png" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="24" aria-label="Show certificate 25: Village88 JavaScript Examination">
+                                    <img src="assets/images/certificates/v88-js-exam.png" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="25" aria-label="Show certificate 26: Village88 PHP Training">
+                                    <img src="assets/images/certificates/v88-php-track.png" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="26" aria-label="Show certificate 27: Village88 PHP and PHP Examination">
+                                    <img src="assets/images/certificates/v88-php-exam.png" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="27" aria-label="Show certificate 28: Introduction to FullStack Development">
+                                    <img src="assets/images/certificates/xaltius-fullstack.png" alt="">
+                                </button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="28" aria-label="Show certificate 29: Data Visualization Workshop">
+                                    <img src="assets/images/certificates/data-visualization.png" alt="">
+                                </button>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Skills -->
+        <section id="skills" class="section-band">
+            <div class="container section-space">
+                <p class="section-kicker mb-2">Professional Skills</p>
+                <p class="lead-sub">A timeline of the core professional skills I've developed and the experience behind each one.</p>
+                <div class="skills-roadmap">
+                    <div class="skills-roadmap__line"></div>
+                    <div class="skills-roadmap__item">
+                        <div class="skills-roadmap__node"></div>
+                        <div class="skills-roadmap__content">
+                            <h3 class="skills-roadmap__title">HTML</h3>
+                            <p class="skills-roadmap__desc">HTML is the skeleton of a website, it has all the basic structure and foundation on building a website. I learned HTML way back 2016 when I was a student and that time I only know how to create a link and go to another link. But now, I almost learned everything in HTML and still learning and do some practices.</p>
+                        </div>
+                    </div>
+                    <div class="skills-roadmap__item">
+                        <div class="skills-roadmap__node"></div>
+                        <div class="skills-roadmap__content">
+                            <h3 class="skills-roadmap__title">CSS</h3>
+                            <p class="skills-roadmap__desc">CSS describes how HTML elements are to be displayed on screen. Its for design and layout of HTML elements. I have known CSS since the time I learned HTML. Way back those years, I only know the basic of CSS like the background color, fonts, and opacity. Now, I have a deeply knowledge on CSS and still learning it everyday for designing my projects.</p>
+                        </div>
+                    </div>
+                    <div class="skills-roadmap__item">
+                        <div class="skills-roadmap__node"></div>
+                        <div class="skills-roadmap__content">
+                            <h3 class="skills-roadmap__title">PHP</h3>
+                            <p class="skills-roadmap__desc">PHP is a server side scripting language that is embedded in HTML. It is used to manage dynamic content, databases, session tracking, even build entire e-commerce sites. PHP is also the interaction between the website and the user. Its where you create an API or a bridge on connecting website to user especially when you encounter databases on how to create, edit, store, update, delete datas. I have also knowledge from beginner to intermediate on PHP and still learning it everyday.</p>
+                        </div>
+                    </div>
+                    <div class="skills-roadmap__item">
+                        <div class="skills-roadmap__node"></div>
+                        <div class="skills-roadmap__content">
+                            <h3 class="skills-roadmap__title">Laravel</h3>
+                            <p class="skills-roadmap__desc">Laravel is a PHP Framework and it is used in the majority of web projects.</p>
+                        </div>
+                    </div>
+                    <div class="skills-roadmap__item">
+                        <div class="skills-roadmap__node"></div>
+                        <div class="skills-roadmap__content">
+                            <h3 class="skills-roadmap__title">JavaScript</h3>
+                            <p class="skills-roadmap__desc">JavaScript is a programming language that allows you to implement complex features on web pages.</p>
+                        </div>
+                    </div>
+                    <div class="skills-roadmap__item">
+                        <div class="skills-roadmap__node"></div>
+                        <div class="skills-roadmap__content">
+                            <h3 class="skills-roadmap__title">ReactJS</h3>
+                            <p class="skills-roadmap__desc">Building my first React app was an exciting experience.</p>
+                        </div>
+                    </div>
+                    <div class="skills-roadmap__item">
+                        <div class="skills-roadmap__node"></div>
+                        <div class="skills-roadmap__content">
+                            <h3 class="skills-roadmap__title">NodeJS</h3>
+                            <p class="skills-roadmap__desc">NodeJS is a javascript runtime environment and a backend framework.</p>
+                        </div>
+                    </div>
+                    <div class="skills-roadmap__item">
+                        <div class="skills-roadmap__node"></div>
+                        <div class="skills-roadmap__content">
+                            <h3 class="skills-roadmap__title">MySQL</h3>
+                            <p class="skills-roadmap__desc">I have been able to explore the complexities of relational databases.</p>
+                        </div>
+                    </div>
+                    <div class="skills-roadmap__item">
+                        <div class="skills-roadmap__node"></div>
+                        <div class="skills-roadmap__content">
+                            <h3 class="skills-roadmap__title">MongoDB</h3>
+                            <p class="skills-roadmap__desc">Since I started learning about MongoDB, I have explored the flexibility of NoSQL databases.</p>
+                        </div>
+                    </div>
+                    <div class="skills-roadmap__item">
+                        <div class="skills-roadmap__node"></div>
+                        <div class="skills-roadmap__content">
+                            <h3 class="skills-roadmap__title">Git and GitHub</h3>
+                            <p class="skills-roadmap__desc">Learning Git and GitHub has completely changed the way I manage my code.</p>
+                        </div>
+                    </div>
+                    <div class="skills-roadmap__item">
+                        <div class="skills-roadmap__node"></div>
+                        <div class="skills-roadmap__content">
+                            <h3 class="skills-roadmap__title">Web Scraping</h3>
+                            <p class="skills-roadmap__desc">I learned how to implement and maintain web scraping scripts and scheduled jobs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Stacks -->
+        <section class="section-band">
+            <div class="container section-space">
+                <p class="section-kicker mb-2">Technology Stacks</p>
+                <p class="lead-sub">Technologies and tools I've learned and used throughout my journey as a software engineer.</p>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-card__icon"><img src="assets/images/skills/html5.png" alt="HTML5"></div>
+                        <h3>HTML5</h3>
+                        <p>Semantic markup and structure for building web pages.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card__icon"><img src="assets/images/skills/css.png" alt="CSS3"></div>
+                        <h3>CSS3</h3>
+                        <p>Styling and layouts including Flexbox, Grid, and animations.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card__icon"><img src="assets/images/skills/bootstrap.png" alt="Bootstrap"></div>
+                        <h3>Bootstrap</h3>
+                        <p>Rapidly build responsive interfaces with ready-made components.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card__icon"><img src="assets/images/skills/materialize.png" alt="Materialize"></div>
+                        <h3>Materialize</h3>
+                        <p>Material Design CSS framework for modern, clean UIs.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card__icon"><img src="assets/images/skills/tailwindcss.png" alt="Tailwind"></div>
+                        <h3>Tailwind</h3>
+                        <p>Utility-first CSS framework for fast, custom designs.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card__icon"><img src="assets/images/skills/js.png" alt="JavaScript"></div>
+                        <h3>JavaScript</h3>
+                        <p>Dynamic scripting for interactive and responsive web apps.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card__icon"><img src="assets/images/skills/jquery.png" alt="jQuery"></div>
+                        <h3>jQuery</h3>
+                        <p>DOM manipulation and simplified event handling.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card__icon"><img src="assets/images/skills/react-js.png" alt="ReactJS"></div>
+                        <h3>ReactJS</h3>
+                        <p>Component-based UI library for building single-page apps.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card__icon"><img src="assets/images/skills/node-js.png" alt="NodeJS"></div>
+                        <h3>NodeJS</h3>
+                        <p>Server-side JavaScript runtime for building backend services.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card__icon"><img src="assets/images/skills/express-js.png" alt="ExpressJS"></div>
+                        <h3>ExpressJS</h3>
+                        <p>Minimal and flexible Node.js web application framework.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card__icon"><img src="assets/images/skills/php.png" alt="PHP"></div>
+                        <h3>PHP</h3>
+                        <p>Server-side scripting language for web development.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card__icon"><img src="assets/images/skills/laravel.png" alt="Laravel"></div>
+                        <h3>Laravel</h3>
+                        <p>Elegant PHP framework with expressive, elegant syntax.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card__icon"><img src="assets/images/skills/mysql.png" alt="MySQL"></div>
+                        <h3>MySQL</h3>
+                        <p>Relational database management for structured data.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card__icon"><img src="assets/images/skills/mongodb-icon.png" alt="MongoDB"></div>
+                        <h3>MongoDB</h3>
+                        <p>NoSQL document database for flexible, scalable storage.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card__icon"><img src="assets/images/skills/wordpress.png" alt="WordPress"></div>
+                        <h3>WordPress</h3>
+                        <p>Popular CMS for building websites and blogs quickly.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card__icon"><img src="assets/images/skills/moodle.png" alt="Moodle"></div>
+                        <h3>Moodle</h3>
+                        <p>Learning management system for online education.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card__icon"><img src="assets/images/skills/ui-ux.png" alt="UI/UX"></div>
+                        <h3>UI/UX</h3>
+                        <p>Designing intuitive and engaging user experiences.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card__icon"><img src="assets/images/skills/git.png" alt="Git"></div>
+                        <h3>Git</h3>
+                        <p>Version control for tracking changes and collaboration.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card__icon"><img src="assets/images/skills/webql.png" alt="WebQL"></div>
+                        <h3>WebQL</h3>
+                        <p>Query language and tooling for web data management.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="section-band bg-white">
+            <div class="container section-space">
+                <p class="section-kicker mb-2">Projects</p>
+                <p class="lead-sub">A showcase of my work, experiments, and hands-on learning through different projects.</p>
+                <div class="projects">
+                    <div class="skill-card" data-original-title="A simple web application designed to manage a menu of food items with add, view, update, and delete functionalities.">
+                        <div class="skill-card__icon"><img src="assets/images/projects/resto-go.png" alt="RestoGo menu manager"></div>
+                        <h3>RestoGo</h3>
+                        <a class="btn btn-outline-primary btn-sm mt-2" href="https://github.com/CesarF1204/RestoGo" target="_blank" rel="noopener">Repository</a>
+                    </div>
+                    <div class="skill-card" data-original-title="A comprehensive seminar reservation system with user authentication, seminar management, booking, and payment processing.">
+                        <div class="skill-card__icon"><img src="assets/images/projects/seminar-reservation.png" alt="Seminar Reservation System"></div>
+                        <h3>Seminar Reservation System</h3>
+                        <a class="btn btn-outline-primary btn-sm mt-2" href="https://github.com/CesarF1204/Seminar-Reservation-System" target="_blank" rel="noopener">Repository</a>
+                    </div>
+                    <div class="skill-card" data-original-title="A school absences reporting system built in Laravel for instructors to record student absences per subject.">
+                        <div class="skill-card__icon"><img src="assets/images/projects/absent.png" alt="School Absences Reporting"></div>
+                        <h3>School Absences Reporting</h3>
+                        <a class="btn btn-outline-primary btn-sm mt-2" href="https://bitbucket.org/prinsipeces/uc_attendance_final/src/master/" target="_blank" rel="noopener">Repository</a>
+                    </div>
+                    <div class="skill-card" data-original-title="A facility event management system built in Laravel for managing events on specific dates.">
+                        <div class="skill-card__icon"><img src="assets/images/projects/calendar.png" alt="Facility Event Calendar"></div>
+                        <h3>Facility Event Calendar</h3>
+                        <a class="btn btn-outline-primary btn-sm mt-2" href="https://bitbucket.org/prinsipeces/facilityeventcalendar/src/master/" target="_blank" rel="noopener">Repository</a>
+                    </div>
+                    <div class="skill-card" data-original-title="A simple student information system made in PHP with admin and teacher roles for managing student records.">
+                        <div class="skill-card__icon"><img src="assets/images/projects/student-info.png" alt="Student Information System"></div>
+                        <h3>Student Information System</h3>
+                        <a class="btn btn-outline-primary btn-sm mt-2" href="https://bitbucket.org/prinsipeces/student_system/src/master/" target="_blank" rel="noopener">Repository</a>
+                    </div>
+                    <div class="skill-card" data-original-title="A food ordering and table reservation system built with Materialize CSS, JavaScript, and PHP.">
+                        <div class="skill-card__icon"><img src="assets/images/projects/resto.png" alt="Food and Table Reservation"></div>
+                        <h3>Food and Table Reservation</h3>
+                        <a class="btn btn-outline-primary btn-sm mt-2" href="https://bitbucket.org/prinsipeces/my-resto/src/master/" target="_blank" rel="noopener">Repository</a>
+                    </div>
+                </div>
+                <!-- mini projects-->
+                <p class="section-kicker mt-4">Mini Projects</p>
+                <p class="lead-sub">A collection of mini projects that reflect my journey and growth.</p>
+                <div class="projects">
+                    <div class="skill-card" data-original-title="A simple note app built with NodeJS, NestJS, EJS, and MongoDB for organizing and managing notes efficiently.">
+                        <div class="skill-card__icon"><img src="assets/images/projects/note-app.png" alt="Note App"></div>
+                        <h3>Note App</h3>
+                        <a class="btn btn-outline-primary btn-sm mt-2" href="https://github.com/CesarF1204/note-app" target="_blank" rel="noopener">Repository</a>
+                    </div>
+                    <div class="skill-card" data-original-title="A simple todo list app built in VueJS for tracking daily activities.">
+                        <div class="skill-card__icon"><img src="assets/images/projects/todolist.png" alt="Todo List"></div>
+                        <h3>Todo List</h3>
+                        <a class="btn btn-outline-primary btn-sm mt-2" href="https://bitbucket.org/prinsipeces/todo-list-app/src/master/" target="_blank" rel="noopener">Repository</a>
+                    </div>
+                    <div class="skill-card" data-original-title="A simple 2048 game built with HTML, CSS, and JavaScript. Compatible on web and mobile.">
+                        <div class="skill-card__icon"><img src="assets/images/projects/2048.png" alt="2048 Game"></div>
+                        <h3>2048 Game</h3>
+                        <a class="btn btn-outline-primary btn-sm mt-2" href="https://cesarf1204.github.io/2048-TheGame" target="_blank" rel="noopener">Play Now</a>
+                    </div>
+                    <div class="skill-card" data-original-title="A simple expense tracker built in JavaScript that logs all income and expenses.">
+                        <div class="skill-card__icon"><img src="assets/images/projects/expense-tracker.png" alt="Expense Tracker"></div>
+                        <h3>Expense Tracker</h3>
+                        <a class="btn btn-outline-primary btn-sm mt-2" href="https://codepen.io/cesar-francisco/pen/oNzKQrq" target="_blank" rel="noopener">View Demo</a>
+                    </div>
+                    <div class="skill-card" data-original-title="A simple calculator built in JavaScript with basic arithmetic operations.">
+                        <div class="skill-card__icon"><img src="assets/images/projects/calc.png" alt="Calculator"></div>
+                        <h3>Calculator</h3>
+                        <a class="btn btn-outline-primary btn-sm mt-2" href="https://codepen.io/cesar-francisco/pen/BazKOXq" target="_blank" rel="noopener">View Demo</a>
+                    </div>
+                    <div class="skill-card" data-original-title="A simple bookmark app built in JavaScript that saves links to browser local storage.">
+                        <div class="skill-card__icon"><img src="assets/images/projects/bookmark.png" alt="Bookmark"></div>
+                        <h3>Bookmark</h3>
+                        <a class="btn btn-outline-primary btn-sm mt-2" href="https://codepen.io/cesar-francisco/pen/oNLXKje" target="_blank" rel="noopener">View Demo</a>
+                    </div>
+                    <div class="skill-card" data-original-title="A simple registration form that validates user inputs for empty values.">
+                        <div class="skill-card__icon"><img src="assets/images/projects/registration-validation.png" alt="Registration Form"></div>
+                        <h3>Registration Form</h3>
+                        <a class="btn btn-outline-primary btn-sm mt-2" href="https://codepen.io/cesar-francisco/pen/ZEpgVGB" target="_blank" rel="noopener">View Demo</a>
+                    </div>
+                    <div class="skill-card" data-original-title="A fun button interaction experiment built in JavaScript.">
+                        <div class="skill-card__icon"><img src="assets/images/projects/crazy-btns.jpg" alt="Crazy Buttons"></div>
+                        <h3>Crazy Buttons</h3>
+                        <a class="btn btn-outline-primary btn-sm mt-2" href="https://codepen.io/cesar-francisco/pen/vYKOQmg" target="_blank" rel="noopener">View Demo</a>
+                    </div>
+                    <div class="skill-card" data-original-title="A simple stopwatch built in JavaScript with start, stop, and reset features.">
+                        <div class="skill-card__icon"><img src="assets/images/projects/stopwatch.jpg" alt="Stopwatch"></div>
+                        <h3>Stopwatch</h3>
+                        <a class="btn btn-outline-primary btn-sm mt-2" href="https://codepen.io/cesar-francisco/pen/BazNvKv" target="_blank" rel="noopener">View Demo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="section-band">
+            <div class="container section-space">
+                <div class="row g-5">
+                    <div class="col-lg-5">
+                        <p class="section-kicker mb-2">Contact</p>
+                        <h2 class="display-6 fw-bold mb-3">Let's connect</h2>
+                        <p class="text-secondary">Have feedback, a project idea, or just want to say hello? Use the form or connect with me through GitHub and LinkedIn.</p>
+                        <div class="d-flex flex-wrap gap-3 mt-4">
+                            <a href="https://github.com/CesarF1204" class="link-primary fw-semibold" target="_blank">GitHub</a>
+                            <a href="https://www.linkedin.com/in/cesar-francisco-00a857171/" class="link-primary fw-semibold" target="_blank">LinkedIn</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <form class="contact-form card shadow-sm p-4 p-md-5" action="#" method="post">
+                            <div class="mb-3">
+                                <label for="name" class="form-label fw-semibold">Name</label>
+                                <input type="text" class="form-control" id="name" name="name" autocomplete="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label fw-semibold">Email Address</label>
+                                <input type="email" class="form-control" id="email" name="email" autocomplete="email" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="form-label fw-semibold">Message</label>
+                                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                            </div>
+                            <p class="small text-secondary mt-3 mb-0">Demo form only: connect this to a backend or form service before expecting submissions.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container py-4 d-flex justify-content-center">
+            <p class="mb-0 small">&copy; <span id="current-year"></span> Cesar Francisco. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
