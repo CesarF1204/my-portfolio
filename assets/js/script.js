@@ -243,6 +243,22 @@
         });
     }
 
+    /* -------------------------- Back to top ----------------------------- */
+    function initBackToTop() {
+        let button = document.querySelector(".back-to-top");
+        if (!button) return;
+
+        function updateVisibility() {
+            button.classList.toggle("show", window.scrollY > 300);
+        }
+
+        button.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+        window.addEventListener("scroll", updateVisibility, { passive: true });
+        updateVisibility();
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
     const navLinks = document.querySelectorAll(
         '.site-navbar .nav-link[href^="#"]'
@@ -377,6 +393,7 @@
         initCertificateCarousel();
         initTooltips();
         initNavbar();
+        initBackToTop();
         updateCopyrightYear();
         updateWorkYears();
     }
