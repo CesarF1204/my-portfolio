@@ -23,7 +23,6 @@ portfolio/
 ├── index.html
 └── assets/
 	├── css/style.css
-	├── files/CesarFrancisco_CV.pdf
 	├── images/
 	│   ├── certificates/
 	│   ├── profile_picture/
