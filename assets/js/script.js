@@ -10,24 +10,25 @@
 
     /* ---------------------------- Theme switch --------------------------- */
     function initThemeSwitch() {
-        var button = document.querySelector(".theme-switch");
-        var profileImage = document.querySelector(".profile-image");
+        let themeStorageKey = "portfolio-theme";
+        let button = document.querySelector(".theme-switch");
+        let profileImage = document.querySelector(".profile-image");
         if (!button) return;
 
         function updateTheme(theme) {
-            var isLight = theme === "light";
+            let isLight = theme === "light";
             document.documentElement.setAttribute("data-theme", isLight ? "light" : "night");
             if (profileImage) {
                 profileImage.src = profileImage.getAttribute(isLight ? "data-light-src" : "data-night-src");
             }
             button.setAttribute("aria-pressed", String(isLight));
             button.setAttribute("aria-label", isLight ? "Switch to night mode" : "Switch to light mode");
-            localStorage.setItem("portfolio-theme", isLight ? "light" : "night");
+            localStorage.setItem(themeStorageKey, isLight ? "light" : "night");
         }
 
         updateTheme(document.documentElement.getAttribute("data-theme") || "light");
         button.addEventListener("click", function () {
-            var currentTheme = document.documentElement.getAttribute("data-theme");
+            let currentTheme = document.documentElement.getAttribute("data-theme");
             updateTheme(currentTheme === "light" ? "night" : "light");
         });
     }
@@ -45,7 +46,7 @@
     }
 
     TypeWriter.prototype.type = function () {
-        var current = this.words[this.wordIndex % this.words.length];
+        let current = this.words[this.wordIndex % this.words.length];
 
         this.text = this.isDeleting
             ? current.substring(0, this.text.length - 1)
@@ -53,7 +54,7 @@
 
         this.element.innerHTML = '<span class="txt">' + this.text + '</span>';
 
-        var speed = 100;
+        let speed = 100;
         if (this.isDeleting) {
             speed = speed / 2; // deleting is faster
         }
@@ -69,17 +70,17 @@
             speed = 500;
         }
 
-        var self = this;
+        let self = this;
         window.setTimeout(function () {
             self.type();
         }, speed);
     };
 
     function initTypewriter() {
-        var el = document.querySelector(".txt-type");
+        let el = document.querySelector(".txt-type");
         if (!el) return;
 
-        var words = [];
+        let words = [];
         try {
             words = JSON.parse(el.getAttribute("data-words"));
         } catch (e) {
@@ -103,10 +104,10 @@
     //   keyboard: true  -> Left/Right arrow keys step through certificates
     //   touch: true     -> swipe support on touch devices
     function initCertificateCarousel() {
-        var el = document.getElementById("myCarousel");
+        let el = document.getElementById("myCarousel");
         if (!el || !window.bootstrap || !window.bootstrap.Carousel) return;
 
-        var carousel = window.bootstrap.Carousel.getOrCreateInstance(el, {
+        let carousel = window.bootstrap.Carousel.getOrCreateInstance(el, {
             interval: 1500,
             wrap: true,
             pause: false,
@@ -121,17 +122,17 @@
         carousel.cycle();
 
         // --- Thumbnail pagination (6 per page) ---
-        var thumbnailsPerPage = 6;
-        var thumbnails = Array.prototype.slice.call(
+        let thumbnailsPerPage = 6;
+        let thumbnails = Array.prototype.slice.call(
             document.querySelectorAll(".cert-indicators [data-bs-target]")
         );
-        var totalPages = Math.ceil(thumbnails.length / thumbnailsPerPage);
-        var currentPage = 0;
+        let totalPages = Math.ceil(thumbnails.length / thumbnailsPerPage);
+        let currentPage = 0;
 
         function showThumbnailPage(page) {
             thumbnails.forEach(function (thumb, index) {
-                var start = page * thumbnailsPerPage;
-                var end = start + thumbnailsPerPage;
+                let start = page * thumbnailsPerPage;
+                let end = start + thumbnailsPerPage;
                 if (index >= start && index < end) {
                     thumb.classList.remove("thumbnail-hidden");
                 } else {
@@ -153,7 +154,7 @@
             // the current group of six (e.g. 6 -> 7 changes page 0 -> 1,
             // and 7 -> 6 changes page 1 -> 0).
             if (event.to !== undefined) {
-                var newPage = Math.floor(event.to / thumbnailsPerPage);
+                let newPage = Math.floor(event.to / thumbnailsPerPage);
                 if (newPage !== currentPage && newPage < totalPages) {
                     showThumbnailPage(newPage);
                 }
@@ -173,7 +174,7 @@
         });
     }
     /* --------------------------- Project tooltip ------------------------- */
-    var tooltip = null;
+    let tooltip = null;
 
     function getTooltip() {
         if (!tooltip) {
@@ -186,17 +187,17 @@
     }
 
     function showTooltip(target) {
-        var title = target.getAttribute("data-original-title") || target.getAttribute("title") || "";
+        let title = target.getAttribute("data-original-title") || target.getAttribute("title") || "";
         if (!title) return;
 
-        var box = getTooltip();
+        let box = getTooltip();
         box.textContent = title;
         box.classList.add("show");
 
-        var rect = target.getBoundingClientRect();
-        var boxW = box.offsetWidth || 260;
-        var top = rect.top - box.offsetHeight - 10;
-        var left = rect.left + (rect.width - boxW) / 2;
+        let rect = target.getBoundingClientRect();
+        let boxW = box.offsetWidth || 260;
+        let top = rect.top - box.offsetHeight - 10;
+        let left = rect.left + (rect.width - boxW) / 2;
 
         if (top < 8) top = rect.bottom + 10; // flip below when there is no room above
         left = Math.max(8, Math.min(left, window.innerWidth - boxW - 8));
@@ -211,7 +212,7 @@
     }
 
     function hideTooltip() {
-        var box = getTooltip();
+        let box = getTooltip();
         box.classList.remove("show");
         window.clearTimeout(showTooltip._hideTimer);
     }
@@ -230,7 +231,7 @@
 
     /* ------------------------- Navbar mobile close ------------------------ */
     function initNavbar() {
-        var nav = document.getElementById("mainNav");
+        let nav = document.getElementById("mainNav");
         if (!nav) return;
 
         nav.querySelectorAll(".nav-link").forEach(function (link) {
@@ -339,17 +340,17 @@
     /* ----------------------- Copyright year ---------------------- */
     function updateCopyrightYear() {
         // Display the current calendar year in the footer
-        var now = new Date();
-        var el = document.getElementById("current-year");
+        let now = new Date();
+        let el = document.getElementById("current-year");
         if (el) el.textContent = now.getFullYear();
     }
 
     /* ----------------------- Work experience years ---------------------- */
     function updateWorkYears() {
         // Calculate completed years since September 27, 2021
-        var startDate = new Date(2021, 8, 27); // September 27, 2021
-        var now = new Date();
-        var years = now.getFullYear() - startDate.getFullYear();
+        let startDate = new Date(2021, 8, 27); // September 27, 2021
+        let now = new Date();
+        let years = now.getFullYear() - startDate.getFullYear();
 
         // Subtract one year if the anniversary hasn't occurred yet this year
         if (
@@ -359,7 +360,7 @@
             years--;
         }
 
-        var el = document.getElementById("work-year");
+        let el = document.getElementById("work-year");
         if (el) el.textContent = years;
     }
 
