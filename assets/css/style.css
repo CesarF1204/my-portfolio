@@ -706,6 +706,14 @@ nav .logo img {
     }
 }
 
+@media (max-width: 767.98px) {
+    .skills-roadmap__content,
+    .skills-grid .skill-card,
+    .projects .skill-card {
+        text-align: center;
+    }
+}
+
 /* ------------------------------ Projects ------------------------------- */
 .projects {
     display: grid;
