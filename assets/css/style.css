@@ -286,59 +286,129 @@ nav .logo img {
     margin-left: 0.35rem;
 }
 
+/* Segmented slider: moon (night) on the left, sun (light) on the right.
+   The header stays dark in both themes, so the control keeps its navy
+   glass surface and only the active side / thumb change.
+   Sized to sit quietly inline with the nav links (no hover animation). */
 .theme-switch {
+    --ts-border: rgba(148, 179, 216, 0.2);
+    --ts-track: rgba(2, 6, 15, 0.55);
+    --ts-track-inner: inset 0 2px 4px rgba(0, 0, 0, 0.5), inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+    --ts-thumb: radial-gradient(circle at 32% 28%, #f4f9ff, #b9cbe2);
+    --ts-thumb-shadow: inset 0 -2px 2px rgba(0, 0, 0, 0.2), 0 2px 5px rgba(0, 0, 0, 0.5);
+    --ts-icon-active: #ffffff;
+    --ts-icon-idle: rgba(212, 222, 236, 0.6);
+
+    position: relative;
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
-    min-height: 38px;
-    padding: 0.25rem 0.45rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    gap: 0.15rem;
+    min-height: 35px;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--ts-border);
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.08);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
     color: var(--nav-text);
     cursor: pointer;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+    transition: border-color 0.3s var(--nav-ease);
+}
+
+.theme-switch:active {
+    transform: scale(0.96);
+}
+
+/* Visible keyboard ring that matches the site's focus treatment */
+.theme-switch:focus-visible {
+    outline: none;
+    border-color: rgba(125, 211, 252, 0.65);
+    box-shadow: 0 0 0 2px var(--focus), 0 0 0 5px rgba(125, 211, 252, 0.2);
 }
 
 .theme-switch__icon {
-    width: 1.25rem;
+    width: 1.1rem;
     text-align: center;
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1;
+    transition: color 0.32s var(--nav-ease), transform 0.32s var(--nav-ease), opacity 0.32s var(--nav-ease);
+}
+
+/* Default (night): moon is the active side */
+.theme-switch__icon--night {
+    color: var(--ts-icon-active);
+}
+
+.theme-switch__icon--light {
+    color: var(--ts-icon-idle);
 }
 
 .theme-switch__track {
     display: inline-flex;
     align-items: center;
-    width: 2.25rem;
-    height: 1.25rem;
+    width: 2.35rem;
+    height: 1.2rem;
     padding: 2px;
     border-radius: 999px;
-    background: #374151;
+    background: var(--ts-track);
+    box-shadow: var(--ts-track-inner);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .theme-switch__thumb {
-    width: 1rem;
-    height: 1rem;
+    width: 0.95rem;
+    height: 0.95rem;
     border-radius: 50%;
-    background: #facc15;
+    background: var(--ts-thumb);
+    box-shadow: var(--ts-thumb-shadow);
     transform: translateX(0);
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    transition: transform 0.35s cubic-bezier(0.34, 1.25, 0.4, 1), background 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Light theme: sun becomes active, thumb slides right and warms up */
+:root[data-theme="light"] .theme-switch__icon--night {
+    color: var(--ts-icon-idle);
+}
+
+:root[data-theme="light"] .theme-switch__icon--light {
+    color: #ffd166;
 }
 
 :root[data-theme="light"] .theme-switch__thumb {
-    background: #f59e0b;
-    transform: translateX(1rem);
+    --ts-thumb: radial-gradient(circle at 32% 28%, #ffe9a8, #f59e0b);
+    --ts-thumb-shadow: inset 0 -2px 2px rgba(0, 0, 0, 0.22), 0 2px 6px rgba(245, 158, 11, 0.5);
+    transform: translateX(1.1rem);
 }
 
-:root[data-theme="light"] .theme-switch {
-    background: rgba(255, 255, 255, 0.14);
+:root[data-theme="light"] .theme-switch__track {
+    --ts-track: rgba(2, 6, 15, 0.4);
 }
 
 @media (max-width: 991.98px) {
     .theme-switch-item {
         justify-content: center;
         margin: 0.4rem 0 0;
+    }
+}
+
+/* Full-page cross-fade applied via JS when toggling themes */
+.theme-fade {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    pointer-events: none;
+    background: var(--theme-fade-color, rgba(11, 17, 32, 0.5));
+    animation: theme-fade 0.5s ease forwards;
+}
+
+@keyframes theme-fade {
+    0% {
+        opacity: 0;
+    }
+    45% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
 
@@ -1050,10 +1120,6 @@ nav .logo img {
     background-color: var(--surface);
     color: var(--text);
     border-color: var(--accent);
-}
-
-.theme-switch:focus-visible {
-    outline-color: var(--focus);
 }
 
 h1,

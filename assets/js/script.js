@@ -15,6 +15,35 @@
         let profileImage = document.querySelector(".profile-image");
         if (!button) return;
 
+        let reduceMotionMq = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+        // Soft full-page wash that helps light/night colors crossfade together.
+        function runThemeFade(isLight) {
+            if (reduceMotionMq.matches) return;
+            let overlay = document.createElement("div");
+            overlay.className = "theme-fade";
+            overlay.style.setProperty(
+                "--theme-fade-color",
+                isLight ? "rgba(249, 250, 251, 0.6)" : "rgba(11, 17, 32, 0.6)"
+            );
+            document.body.appendChild(overlay);
+            overlay.addEventListener("animationend", function () {
+                overlay.remove();
+            }, { once: true });
+        }
+
+        // Small expanding glow that confirms the press on the switch itself.
+        function runSwitchRipple() {
+            if (reduceMotionMq.matches || !button.animate) return;
+            button.animate(
+                [
+                    { boxShadow: "0 0 0 0 rgba(125, 211, 252, 0.45)" },
+                    { boxShadow: "0 0 0 18px rgba(125, 211, 252, 0)" }
+                ],
+                { duration: 520, easing: "ease-out" }
+            );
+        }
+
         function updateTheme(theme) {
             let isLight = theme === "light";
             document.documentElement.setAttribute("data-theme", isLight ? "light" : "night");
@@ -27,9 +56,13 @@
         }
 
         updateTheme(document.documentElement.getAttribute("data-theme") || "light");
+
         button.addEventListener("click", function () {
             let currentTheme = document.documentElement.getAttribute("data-theme");
-            updateTheme(currentTheme === "light" ? "night" : "light");
+            let isLight = currentTheme === "light";
+            runThemeFade(!isLight);
+            runSwitchRipple();
+            updateTheme(isLight ? "night" : "light");
         });
     }
 
