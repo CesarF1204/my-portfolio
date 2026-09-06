@@ -8,7 +8,7 @@ A responsive personal portfolio for **Cesar Francisco** built with HTML, CSS, Bo
 - About, Skills, Projects, Certificates, and Contact sections
 - Working certificate carousel with clickable thumbnails
 - Responsive project and skills tiles
-- Accessible controls (keyboard navigation, ARIA labels, skip link)
+- Accessible controls (keyboard navigation and ARIA labels)
 - Respects `prefers-reduced-motion`
 
 ## Technologies
