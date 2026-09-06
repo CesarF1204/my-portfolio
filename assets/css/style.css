@@ -31,6 +31,15 @@
     --radius: 16px;
     --header-h: 76px;
     --section-py: 3rem;
+
+    /* Navigation refinement */
+    --nav-link-weight: 600;
+    --nav-link-active-weight: 700;
+    --nav-text-hover: #7dd3fc;
+    --nav-text-active: #ffffff;
+    --nav-underline: var(--accent);
+    --nav-link-radius: 0.625rem;
+    --nav-ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 :root[data-theme="light"] {
@@ -51,6 +60,10 @@
     --header-border: rgba(255, 255, 255, 0.08);
     --footer-bg: #212529;
     --footer-text: #f8f9fa;
+
+    /* Navigation refinement (light-mode header is dark slate, so use bright text) */
+    --nav-text-hover: #7dd3fc;
+    --nav-text-active: #ffffff;
 }
 
 /* ------------------------------- Base ---------------------------------- */
@@ -165,14 +178,12 @@ nav .logo img {
     }
 
     .nav-link {
-        padding: 0.75rem 0 !important;
+        padding: 0.7rem 1rem;
         font-size: 1.1rem;
-        transition: all 0.2s ease;
     }
 
     .nav-link:hover {
         color: var(--link) !important;
-        padding-left: 5px !important;
     }
 }
 
@@ -189,20 +200,84 @@ nav .logo img {
 }
 
 .site-navbar .nav-link {
+    position: relative;
+    z-index: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.55rem 1.1rem;
+    margin: 0 0.15rem;
+    border-radius: var(--nav-link-radius);
     color: var(--nav-text);
-    font-weight: 600;
-    transition: color 0.2s ease;
+    font-weight: var(--nav-link-weight);
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    transition: color 0.28s var(--nav-ease), font-weight 0.28s var(--nav-ease);
+}
+
+/* Underline indicator that grows outward from the center */
+.site-navbar .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0.4rem;
+    width: 1.45rem;
+    height: 2px;
+    border-radius: 999px;
+    background-color: var(--nav-underline);
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s var(--nav-ease), background-color 0.28s ease;
 }
 
 .site-navbar .nav-link:hover,
 .site-navbar .nav-link:focus-visible {
-    color: var(--link);
+    color: var(--nav-text-hover);
 }
 
+.site-navbar .nav-link:hover::after,
+.site-navbar .nav-link:focus-visible::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* Clear, persistent indicator for the current section */
 .site-navbar .nav-link.active,
 .site-navbar .nav-link[aria-current="page"] {
-    color: var(--link);
-    font-weight: 700;
+    color: var(--nav-text-active);
+    font-weight: var(--nav-link-active-weight);
+}
+
+.site-navbar .nav-link.active::after,
+.site-navbar .nav-link[aria-current="page"]::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* Subtle entrance: links ease in from above as the page loads */
+.site-navbar .navbar-nav .nav-item {
+    opacity: 0;
+    transform: translateY(-8px);
+    animation: nav-enter 0.55s var(--nav-ease) forwards;
+}
+
+.site-navbar .navbar-nav .nav-item:nth-child(1) { animation-delay: 0.05s; }
+.site-navbar .navbar-nav .nav-item:nth-child(2) { animation-delay: 0.11s; }
+.site-navbar .navbar-nav .nav-item:nth-child(3) { animation-delay: 0.17s; }
+.site-navbar .navbar-nav .nav-item:nth-child(4) { animation-delay: 0.23s; }
+.site-navbar .navbar-nav .nav-item:nth-child(5) { animation-delay: 0.29s; }
+
+@keyframes nav-enter {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site-navbar .navbar-nav .nav-item {
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
 }
 
 .theme-switch-item {
@@ -269,11 +344,30 @@ nav .logo img {
 
 .brand {
     text-decoration: none;
+    transition: transform 0.28s var(--nav-ease);
+}
+
+.brand:hover {
+    transform: translateY(-1px);
+}
+
+.brand .logo img {
+    border-radius: 8px;
+    transition: box-shadow 0.28s var(--nav-ease);
+}
+
+.brand:hover .logo img {
+    box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
 .brand-text strong {
     font-size: 16px;
     color: var(--nav-text);
+    transition: color 0.28s var(--nav-ease);
+}
+
+.brand:hover .brand-text strong {
+    color: var(--nav-text-hover);
 }
 
 .brand-text small {
