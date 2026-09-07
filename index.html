@@ -13,7 +13,11 @@
     <!-- Custom CSS after Bootstrap so it can override framework defaults -->
     <link rel="stylesheet" href="assets/css/style.css">
     <script>
-        document.documentElement.setAttribute("data-theme", localStorage.getItem("portfolio-theme") || "light");
+        // Read stored preference, default is light theme.
+        const storedTheme = localStorage.getItem("portfolio-theme") || "light";
+        const theme = storedTheme === "night" ? "dark" : storedTheme;
+        localStorage.setItem("portfolio-theme", theme);
+        document.documentElement.setAttribute("data-theme", theme);
     </script>
 </head>
 <body>
@@ -41,7 +45,7 @@
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                         <li class="nav-item theme-switch-item">
                             <button class="theme-switch" type="button" aria-label="Switch to light mode" aria-pressed="false">
-                                <span class="theme-switch__icon theme-switch__icon--night" aria-hidden="true">&#127769;</span>
+                                <span class="theme-switch__icon theme-switch__icon--dark" aria-hidden="true">&#127769;</span>
                                 <span class="theme-switch__track" aria-hidden="true"><span class="theme-switch__thumb"></span></span>
                                 <span class="theme-switch__icon theme-switch__icon--light" aria-hidden="true">&#9728;</span>
                             </button>
@@ -87,7 +91,7 @@
                         </div>
                     </div>
                     <div class="col-lg-5 order-1 order-lg-2 text-center">
-                        <img class="profile-image img-fluid" src="assets/images/profile_picture/Cesar_Francisco_closed_eyes.jpg" data-night-src="assets/images/profile_picture/Cesar_Francisco_closed_eyes.jpg" data-light-src="assets/images/profile_picture/Cesar_Francisco.jpg" alt="Profile photo for Cesar Francisco" width="360" height="360">
+                        <img class="profile-image img-fluid" src="assets/images/profile_picture/Cesar_Francisco_closed_eyes.jpg" data-dark-src="assets/images/profile_picture/Cesar_Francisco_closed_eyes.jpg" data-light-src="assets/images/profile_picture/Cesar_Francisco.jpg" alt="Profile photo for Cesar Francisco" width="360" height="360">
                     </div>
                 </div>
             </div>

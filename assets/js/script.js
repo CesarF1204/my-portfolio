@@ -17,7 +17,7 @@
 
         const reduceMotionMq = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-        // Soft full-page wash that helps light/night colors crossfade together.
+        // Soft full-page wash that helps light/dark colors crossfade together.
         const runThemeFade = (isLight) => {
             if (reduceMotionMq.matches) return;
             const overlay = document.createElement("div");
@@ -49,15 +49,15 @@
 
         const updateTheme = (theme) => {
             const isLight = theme === "light";
-            document.documentElement.setAttribute("data-theme", isLight ? "light" : "night");
+            document.documentElement.setAttribute("data-theme", isLight ? "light" : "dark");
             if (profileImage) {
                 profileImage.src = profileImage.getAttribute(
-                    isLight ? "data-light-src" : "data-night-src"
+                    isLight ? "data-light-src" : "data-dark-src"
                 );
             }
             button.setAttribute("aria-pressed", String(isLight));
-            button.setAttribute("aria-label", isLight ? "Switch to night mode" : "Switch to light mode");
-            localStorage.setItem(themeStorageKey, isLight ? "light" : "night");
+            button.setAttribute("aria-label", isLight ? "Switch to dark mode" : "Switch to light mode");
+            localStorage.setItem(themeStorageKey, isLight ? "light" : "dark");
         };
 
         updateTheme(document.documentElement.getAttribute("data-theme") || "light");
@@ -67,7 +67,7 @@
             const isLight = currentTheme === "light";
             runThemeFade(!isLight);
             runSwitchRipple();
-            updateTheme(isLight ? "night" : "light");
+            updateTheme(isLight ? "dark" : "light");
         });
     };
 

@@ -1,7 +1,7 @@
 /* ==========================================================================
     Cesar Francisco | Portfolio — main stylesheet
     Built on top of Bootstrap 5 (customizations live here).
-    Palette: night-first navy surfaces, blue accent, warning-yellow hover.
+    Palette: dark-first navy surfaces, blue accent, warning-yellow hover.
     ========================================================================== */
 
 /* ----------------------------- Design tokens ---------------------------- */
@@ -286,7 +286,7 @@ nav .logo img {
     margin-left: 0.35rem;
 }
 
-/* Segmented slider: moon (night) on the left, sun (light) on the right.
+/* Segmented slider: moon (dark) on the left, sun (light) on the right.
    The header stays dark in both themes, so the control keeps its navy
    glass surface and only the active side / thumb change.
    Sized to sit quietly inline with the nav links (no hover animation). */
@@ -333,8 +333,8 @@ nav .logo img {
     transition: color 0.32s var(--nav-ease), transform 0.32s var(--nav-ease), opacity 0.32s var(--nav-ease);
 }
 
-/* Default (night): moon is the active side */
-.theme-switch__icon--night {
+/* Default (dark): moon is the active side */
+.theme-switch__icon--dark {
     color: var(--ts-icon-active);
 }
 
@@ -365,7 +365,7 @@ nav .logo img {
 }
 
 /* Light theme: sun becomes active, thumb slides right and warms up */
-:root[data-theme="light"] .theme-switch__icon--night {
+:root[data-theme="light"] .theme-switch__icon--dark {
     color: var(--ts-icon-idle);
 }
 

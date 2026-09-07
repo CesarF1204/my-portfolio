@@ -2,8 +2,8 @@
 A responsive personal portfolio for **Cesar Francisco** (Software Engineer) built with HTML, CSS, Bootstrap 5, and vanilla JavaScript (no jQuery). It showcases his professional journey, skills, projects, and certificates.
 
 ## Features
-- **Responsive sticky navbar** — collapsible on mobile, with a built-in light/night theme switch
-- **Light / Night theme** — toggle with a soft page crossfade, press ripple, and `localStorage` persistence
+- **Responsive sticky navbar** — collapsible on mobile, with a built-in light/dark theme switch
+- **Light / Dark theme** — toggle with a soft page crossfade, press ripple, and `localStorage` persistence
 - **Hero section** — animated typewriter intro, "Download CV", GitHub, and social links
 - **About section** — info cards describing background, a personal touch, and professional profile
 - **Professional skills roadmap** — a timeline of core skills with the experience behind each one
@@ -38,7 +38,7 @@ portfolio/
     │   └── style.css
     ├── images/
     │   ├── certificates/      # certificate carousel slides & thumbnails (29)
-    │   ├── profile_picture/   # profile photos (light & night variants)
+    │   ├── profile_picture/   # profile photos (light & dark variants)
     │   ├── projects/          # project screenshots
     │   ├── skills/            # technology stack icons
     │   └── logo.png           # site icon
@@ -47,7 +47,7 @@ portfolio/
 ```
 
 ## JavaScript features (`assets/js/script.js`)
-- Light/night theme switch with `localStorage` persistence
+- Light/dark theme switch with `localStorage` persistence
 - Typewriter effect in the hero intro
 - Certificate carousel with auto-play and synced clickable thumbnails
 - Project tooltips
